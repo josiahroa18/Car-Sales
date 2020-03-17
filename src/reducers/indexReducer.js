@@ -18,17 +18,18 @@ const initialState = {
 }
 
 export const indexReducer = (state = initialState, action) => {
-    // console.log(state);
+    console.log(state);
     switch(action.type){
+        // BUG: Multiples of an item - FIX: Restrict one selection per feature
         case REMOVE_ITEM:
             return {
                 ...state,
                 car: {
                     ...state.car,
                     features: [
-                        ...state.car.features.filter(item => {
-                            if(!item.id === action.payload.id){
-                                return item
+                        ...state.car.features.filter(feature => {
+                            if(feature.id !== action.payload.id){
+                                return feature
                             }
                         })
                     ]

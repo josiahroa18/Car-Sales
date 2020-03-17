@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../actions/indexAction';
 
 const AdditionalFeature = props => {
   return (
